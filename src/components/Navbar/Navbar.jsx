@@ -6,7 +6,7 @@ import "./navbar.css";
 
 export default function Navbar() {
   return (
-    <nav className="Navbar container-fluid">
+    <nav className="Navbar container-fluid position-fixed">
       <div className="navbar-flex">
         <Link className="" href="/">
           <img src={logo} alt="logo" className="logo" />
@@ -21,7 +21,7 @@ export default function Navbar() {
           </form>
         </div>
         <div>
-          <button className='btn'>Sign In </button>
+          <button className='btn'>Sign up </button>
           <button className='btn'>Log In</button>
         </div>
       </div>

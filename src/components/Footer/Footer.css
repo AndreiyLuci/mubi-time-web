@@ -1,0 +1,28 @@
+.Footer {
+  height: 30vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.footer-logo {
+  background-color: royalblue;
+}
+
+img {
+  height: 40px; 
+  padding-right: 2.5rem;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-list li {
+  list-style: none;
+  margin: 0.2rem;
+  cursor: pointer;
+}

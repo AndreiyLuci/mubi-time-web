@@ -1,0 +1,44 @@
+.Home {
+  padding-top: 4rem;
+}
+
+.Home-image {
+  height: 80vh;
+  width: 100%;
+  background-image: url('../../assets/images/background.jpg');
+  background-size:cover;
+  background-position-y: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.Home-info {
+  width: 35%;
+  height: 40vh;
+  padding-left: 1rem;
+  background-color: rgb(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: left;
+  color: rgb(255, 255, 255);
+  text-align: left;
+  border-radius: 4px;
+}
+
+.Home-info p {
+  font-size: 1.2em;
+}
+
+.Home-info button {
+  padding: 0;
+  text-align:left;
+  font-size: larger;
+  color: rgb(255, 255, 255)
+}
+
+.Home-info button:hover {
+  color:rgb(160, 160, 160)
+}

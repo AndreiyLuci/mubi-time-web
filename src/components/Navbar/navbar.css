@@ -12,6 +12,7 @@
 .Navbar {
   width: 100vw;
   height: 4rem;
+  background-color: rgb(255, 255, 255);
   border-bottom: 2px solid rgb(107, 104, 104);
 }
 
