@@ -8,7 +8,7 @@ export default function Footer() {
       <img src={logo} alt="logo" />
 
       <div>
-        <p>Copyright 2011-2021 Musicintown, LLC</p>
+        <p>Copyright 2021 Musicintown, LLC</p>
         <p>Terms of Use |Privacy Policy |Cookie Policy</p>
         <p>GDPR/CCPA Privacy Request |Manage Preferences</p>
       </div>

@@ -1,13 +1,13 @@
 import React from "react";
 import { XIcon } from "@heroicons/react/solid";
 import logo from "../../assets/images/MusicInTown (2).gif";
-import './Modal.css';
+import "./ModalSignUp.css";
 
-function Modal({ closeModal }) {
+function ModalSignUp({ closeModal }) {
   return (
-    <div className="modalBackground">
-      <div className="modalContainer">
-        <div className='titleCloseBtn'>
+    <div className="modal-background">
+      <div className="modal-container">
+        <div className="title-close-btn">
           <button className="btn" onClick={() => closeModal(false)}>
             <XIcon style={{ height: 20, width: 20 }} />
           </button>
@@ -20,7 +20,7 @@ function Modal({ closeModal }) {
           </p>
         </div>
         <div className="body">
-          <form className='modalForm'>
+          <form className="modal-form">
             <label>Email</label>
             <input></input>
             <label>Password</label>
@@ -29,7 +29,9 @@ function Modal({ closeModal }) {
             <input></input>
             <label>Avatar</label>
             <input></input>
-            <button className='btn btn-light btn-outline-dark submitButton'>Sign Up</button>
+            <button className="btn btn-light btn-outline-dark submit-button">
+              Sign Up
+            </button>
           </form>
           or
           <button>Sign in with Google</button>
@@ -45,4 +47,4 @@ function Modal({ closeModal }) {
   );
 }
 
-export default Modal;
+export default ModalSignUp;

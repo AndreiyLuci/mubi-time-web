@@ -1,4 +1,4 @@
-.modalBackground {
+.modal-background {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
@@ -6,9 +6,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
 }
 
-.modalContainer {
+.modal-container {
   width: 500px;
   height: 700px;
   border-radius: 12px;
@@ -19,26 +20,26 @@
   padding: 25px;
 }
 
-.modalContainer .title {
+.modal-container .title {
   display: inline-block;
   text-align: center;
   margin-top: 10px;
 }
 
-.titleCloseBtn {
+.title-close-btn {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.titleCloseBtn button {
+.title-close-btn button {
   background-color: transparent;
   border: none;
   font-size: 25px;
   cursor: pointer;
 }
 
-.modalContainer .body {
+.modal-container .body {
   flex: 50%;
   display: flex;
   flex-direction: column;
@@ -49,14 +50,14 @@
   margin-bottom: 16px;
 }
 
-.modalForm {
+.modal-form {
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: flex-start;
 }
 
-.modalContainer .footer {
+.modal-container .footer {
   flex: 20%;
   display: flex;
   justify-content: center;
@@ -82,7 +83,7 @@ img {
   color: rgb(33, 37, 48)
 }
 
-.submitButton {
+.submit-button {
   width: 320px;
   margin-top: 16px
 }

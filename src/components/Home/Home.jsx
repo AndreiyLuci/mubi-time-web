@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "../Modal/Modal";
+import ModalSignUp from "../Modal/ModalSignUp";
 import "./home.css";
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="Home">
       <div className="Home-image">
-          {openModal && <Modal closeModal={setOpenModal} />}
+          {openModal && <ModalSignUp closeModal={setOpenModal} />}
         <div className="Home-info">
           <h1>
             Search millions of artists,
