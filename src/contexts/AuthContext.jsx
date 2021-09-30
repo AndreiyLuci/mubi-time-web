@@ -38,7 +38,13 @@ export default function AuthContextProvider({ children }) {
     });
   };
 
-  const value = { user: user, token: token, login: loginFn };
+  const logout = () => {
+    removeAccessToken();
+    setToken(undefined);
+    setUser(undefined);
+  }
+
+  const value = { user: user, token: token, login: loginFn, logout };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
