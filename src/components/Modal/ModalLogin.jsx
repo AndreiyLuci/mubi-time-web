@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { XIcon } from "@heroicons/react/solid";
-import logo from "../../assets/images/MusicInTown (2).gif";
+import logo from "../../assets/images/_Cine Evento Logotipo Line.png";
 import "./ModalSignUp.css";
 import { useAuth } from "../../hooks/useAuth";
 import { useHistory } from "react-router";

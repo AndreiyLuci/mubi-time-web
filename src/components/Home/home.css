@@ -1,11 +1,11 @@
-.Home {
-  padding-top: 4rem;
-}
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+
 
 .Home-image {
   height: 80vh;
   width: 100%;
-  background-image: url('../../assets/images/background.jpg');
+  background-image: url('../../assets/images/cinema2.jpg');
   background-size:cover;
   background-position-y: center;
   display: flex;
@@ -15,21 +15,22 @@
 }
 
 .Home-info {
-  width: 35%;
+  width: 50%;
   height: 40vh;
   padding-left: 1rem;
-  background-color: rgb(0, 0, 0, 0.5);
+  background-color: rgb(255, 222, 89, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: left;
+  align-items: center;
   color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 4px black;
   text-align: left;
   border-radius: 4px;
 }
 
-.Home-info p {
-  font-size: 1.2em;
+.Home-info h4 {
+  text-align: center;
 }
 
 .Home-info button {

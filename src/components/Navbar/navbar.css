@@ -13,8 +13,7 @@
 .Navbar {
   width: 100vw;
   height: 4.5rem;
-  background-color: rgb(255, 255, 255);
-  border-bottom: 2px solid rgb(107, 104, 104);
+  background-color: rgb(255, 222, 89);
 }
 
 .search-form {

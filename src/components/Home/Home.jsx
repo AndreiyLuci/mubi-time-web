@@ -1,29 +1,33 @@
 import { useState } from "react";
-import ModalSignUp from "../Modal/ModalSignUp";
 import "./home.css";
 
 export default function Home() {
-  const [openModal, setOpenModal] = useState(false);
-
   return (
     <div className="Home">
       <div className="Home-image">
-          {openModal && <ModalSignUp closeModal={setOpenModal} />}
         <div className="Home-info">
-          <h1>
-            Search millions of artists,
-            <br /> concerts & events
-          </h1>
-          <p>Discover your next live music experience on Musicintown.</p>
-          <div>
-            <span>
-              <button className="btn" onClick={() => setOpenModal(true)}>
-                Sign up &#10132;{" "}
-              </button>
-            </span>
-          </div>
+          <h1>Welcome to MuBi Time.</h1>
+          <h4>
+            Millions of movies and TV shows are waiting for you. Explore now.
+          </h4>
+          <form className="">
+            <input
+              className="search-form"
+              type="search"
+              placeholder="Search for movies or TV shows..."
+            ></input>
+            <button>Hola</button>
+          </form>
         </div>
       </div>
     </div>
   );
 }
+
+// const [openModal, setOpenModal] = useState(false);
+
+// {openModal && <ModalSignUp closeModal={setOpenModal} />}
+
+// <button className="btn" onClick={() => setOpenModal(true)}>
+//   Sign up &#10132;{" "}
+// </button>

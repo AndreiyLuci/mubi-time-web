@@ -3,6 +3,7 @@ import { getCurrentUser } from "../services/UserService";
 import {
   getAccessToken,
   removeAccessToken,
+  setAccessToken,
 } from "../storage/AccessTokenStorage";
 import { login } from "../services/AuthService";
 
@@ -32,6 +33,7 @@ export default function AuthContextProvider({ children }) {
 
   const loginFn = (email, password) => {
     return login(email, password).then((response) => {
+      setAccessToken(response.access_token)
       setToken(response.access_token);
     });
   };

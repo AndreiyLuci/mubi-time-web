@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import ModalSignUp from "../Modal/ModalSignUp";
-import logo from "../../assets/images/MusicInTown (2).gif";
-import menuIcon from "../../assets/images/MenuIcon.png";
+import logo from "../../assets/images/_Cine Evento Logotipo Line.png";
 import "./navbar.css";
-import ModalLogin from "../Modal/ModalLogin";
 
 export default function Navbar() {
-  const [openModal, setOpenModal] = useState(false);
+  
 
   return (
     <div>
@@ -16,15 +13,6 @@ export default function Navbar() {
           <Link className="" href="/">
             <img src={logo} alt="logo" className="logo" />
           </Link>
-          <div className="" id="">
-            <form className="">
-              <input
-                className="search-form"
-                type="search"
-                placeholder="Search for artists or events..."
-              ></input>
-            </form>
-          </div>
           <div className='buttons'>
             <button className="btn">
               Sign up{" "}
@@ -38,11 +26,11 @@ export default function Navbar() {
 }
 
 //Menu para ver el perfil una vez logado.
-<Link className="" href="/">
+{/* <Link className="" href="/">
   <img src={menuIcon} alt="logo" className="logo" />
-</Link>;
+</Link>; */}
 
-
+// const [openModal, setOpenModal] = useState(false);
 
 
 // {openModal && <ModalSignUp closeModal={setOpenModal} />}
