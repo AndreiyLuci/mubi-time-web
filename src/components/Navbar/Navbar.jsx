@@ -11,7 +11,7 @@ export default function Navbar() {
     <div>
       <nav className="Navbar container-fluid position-fixed">
         <div className="navbar-flex">
-          <Link className="" href="/">
+          <Link to='/'>
             <img src={logo} alt="logo" className="logo" />
           </Link>
           {user ? (

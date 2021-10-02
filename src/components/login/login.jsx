@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [credentials, setCredentials] = useState({
@@ -46,6 +47,9 @@ export default function Login() {
         />
         <button type='submit'>Log in</button>
       </form>
+      <div>
+        <p>Don't have an account?</p> <Link to='/signup'> Sign up </Link>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,75 @@
+* {
+  color: rgb(54, 54, 54)
+}
+
+.SignUp {
+  height: 80vh;
+  background-color: rgba(255, 222, 89, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.SignUp-container {
+  height: 75vh;
+  width: 30vw;
+  background-color: rgb(255, 255, 255);
+  border-radius: 6px;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  
+}
+
+.SignUp-header {
+  background-color:rgba(255, 222, 89);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  padding-top: 1.75rem;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.SignUp-form {
+  padding: 2rem;
+}
+
+img {
+  padding-left: 2.5rem;
+}
+
+.form-input {
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+.Input {
+  width: 100%;
+  height:3.5rem;
+  border: 0;
+  padding-top: 1.9rem;
+  padding-left: 8px;
+  border-bottom: 2px solid rgb(54, 54, 54)
+}
+
+.Input:focus {
+  background-color: rgba(255, 222, 89, 0.3);
+  outline: none;
+  border-bottom:3px solid rgba(255, 222, 89);
+  border-radius: 4px;
+}
+
+.Input:focus + .Label {
+  background-color: red;
+}
+
+.Label {
+  position: absolute;
+  padding-bottom: 2.4rem;
+  padding-left: 8px;
+}
