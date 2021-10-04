@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Login from './components/login/login';
 import SignUp from './components/SignUp/SignUp';
 import Movie from './components/Movie/Movie';
+import MovieList from './components/MovieList/MovieList';
 import "./App.css";
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Route path="/signup" component={SignUp} />
           <Route path="/" exact component={Home} />
           <Route path='/movies/:id' component={Movie} />
-          <Route path='/movies/popular' component={'...'} />
+          <Route path='/movies/popular' component={MovieList} />
         </Switch>
       </div>
       <Footer />
