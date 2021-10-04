@@ -1,4 +1,4 @@
-.SignUp {
+.Login {
   height: 80vh;
   background-color: rgba(255, 222, 89, 0.6);
   display: flex;
@@ -7,7 +7,7 @@
 
 }
 
-.SignUp-container {
+.Login-container {
   height: 76vh;
   width: 30vw;
   background-color: rgb(255, 255, 255);
@@ -16,7 +16,8 @@
   
 }
 
-.SignUp-header {
+.Login-header {
+  height: 132px;
   background-color:rgba(255, 222, 89);
   display: flex;
   flex-direction: column;
@@ -27,8 +28,8 @@
   border-top-right-radius: 5px;
 }
 
-.SignUp-form {
-  padding: 0.75rem 2rem 0;
+.Login-form {
+  padding: 4rem 2rem 0;
 }
 
 .logo {
@@ -66,41 +67,12 @@
   padding-left: 8px;
 }
 
-.avatar-input {
-  width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
-
-.hidden {
-  display: none;
-}
-
-.avatar-form {
-  height: 70px;
-  display:flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
 /* .avatar-form > label {
   padding-left: 100px;
   position:sticky;
 } */
 
-.avatar-image {
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  padding: 0;
-}
-
-.signup-btn {
+.Login-btn {
   border-radius: 4px;
   background-color: rgba(255, 222, 89);
   border: none;
@@ -111,17 +83,17 @@
   width: 140px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px 0 15px;
+  margin: 30px 0 15px;
 }
 
-.signup-btn span {
+.Login-btn span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.signup-btn span:after {
+.Login-btn span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -130,21 +102,22 @@
   transition: 0.5s;
 }
 
-.signup-btn:hover span {
+.Login-btn:hover span {
   padding-right: 25px;
 }
 
-.signup-btn:hover span:after {
+.Login-btn:hover span:after {
   opacity: 1;
   right: 0;
 }
 
-.login-link {
+.signup-link {
   display: flex;
   justify-content: center;
+  margin-top: 4rem
 
 }
 
-.login-link > p {
+.signup-link > p {
   margin-right: 16px;
 }

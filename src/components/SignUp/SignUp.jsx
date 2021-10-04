@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { createUser } from "../../services/UserService";
 import logo from "../../assets/images/_Cine Evento Logotipo Line.png";
 import "./SignUp.css";
+import GoogleLogin from 'react-google-login';
 
 export default function SignUp() {
   const [user, setUser] = useState({
@@ -12,6 +13,8 @@ export default function SignUp() {
     username: "",
     avatar: undefined,
   });
+  const [fileUrl, setFileUrl] = useState();
+  const [hidden, setHidden] = useState(false);
 
   const [error, setError] = useState();
   const { replace } = useHistory();
@@ -22,6 +25,17 @@ export default function SignUp() {
         e.target.type === "file" ? e.target.files[0] : e.target.value;
       return { ...prev, [e.target.name]: value };
     });
+  };
+
+  const handleHidden = () => {
+    setHidden(!hidden);
+  };
+
+  const onChangeImage = (event) => {
+    const imageFile = event.target.files[0];
+    const imageUrl = URL.createObjectURL(imageFile);
+    setFileUrl(imageUrl);
+    handleHidden();
   };
 
   const doRegister = (e) => {
@@ -40,11 +54,19 @@ export default function SignUp() {
       .catch((error) => setError(error.response.data.message));
   };
 
+  const responseSuccessGoogle = (response) => {
+    console.log(response)
+  };
+
+  const responseErrorGoogle = (response) => {
+
+  }
+ 
   return (
     <div className="SignUp">
       <div className="SignUp-container">
         <div className="SignUp-header">
-          <img src={logo} alt="logo" />
+          <img className="logo" src={logo} alt="logo" />
           <p>
             {" "}
             Sign up for{" "}
@@ -59,7 +81,9 @@ export default function SignUp() {
           {error && <p>There was an error: {error}</p>}
           <form onSubmit={doRegister}>
             <div className="form-input">
-              <label className='Label' htmlFor="email">Email</label>
+              <label className="Label" htmlFor="email">
+                Email
+              </label>
               <input
                 className="Input"
                 name="email"
@@ -69,7 +93,9 @@ export default function SignUp() {
               />
             </div>
             <div className="form-input">
-              <label className='Label' htmlFor="password">Password</label>
+              <label className="Label" htmlFor="password">
+                Password
+              </label>
               <input
                 className="Input"
                 name="password"
@@ -80,7 +106,9 @@ export default function SignUp() {
               />
             </div>
             <div className="form-input">
-              <label className='Label' htmlFor="username">Username</label>
+              <label className="Label" htmlFor="username">
+                Username
+              </label>
               <input
                 className="Input"
                 name="username"
@@ -89,18 +117,35 @@ export default function SignUp() {
                 onChange={onChange}
               />
             </div>
-            <div>
-              <label htmlFor="avatar">Avatar</label>
+            <div className="avatar-form">
+              <img
+                src={fileUrl}
+                className={hidden ? "avatar-image" : "avatar-image hidden"}
+                alt="profile"
+              />
+              <label htmlFor="avatar">Select your profile pic...</label>
               <input
+                className="avatar-input"
                 name="avatar"
                 id="avatar"
                 type="file"
-                onChange={onChange}
+                onChange={onChangeImage}
               />
             </div>
-            <button type="submit">Sign Up</button>
+            <div>
+              <button className="signup-btn" type="submit">
+                <span>Sign Up</span>
+              </button>
+              <GoogleLogin
+                clientId={process.env.REACT_APP_GOOGLE_ID}
+                buttonText="Log in with Google"
+                onSuccess={responseSuccessGoogle}
+                onFailure={responseErrorGoogle}
+                cookiePolicy={"single_host_origin"}
+              />
+            </div>
           </form>
-          <div>
+          <div className="login-link">
             <p>Already have an account?</p> <Link to="/login"> Log In </Link>
           </div>
         </div>

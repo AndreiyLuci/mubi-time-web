@@ -6,3 +6,5 @@ export const getMovies = (id) => {
   return http.get(`/movie/${id}`)
 }
 
+
+

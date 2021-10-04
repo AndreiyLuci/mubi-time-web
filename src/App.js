@@ -18,6 +18,7 @@ function App() {
           <Route path="/signup" component={SignUp} />
           <Route path="/" exact component={Home} />
           <Route path='/movies/:id' component={Movie} />
+          <Route path='/movies/popular' component={'...'} />
         </Switch>
       </div>
       <Footer />

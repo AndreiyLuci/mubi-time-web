@@ -37,3 +37,20 @@
 .buttons {
   margin-bottom: 16px;
 }
+
+.navbar-links {
+  display:flex;
+  flex-direction: row;
+
+}
+
+.navbar-ul {
+  display:flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+/* .dropdown-btn {
+  background-color: rgb(255, 222, 89);
+  color:salmon;
+} */
