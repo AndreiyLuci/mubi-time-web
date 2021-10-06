@@ -24,8 +24,8 @@ export default function Navbar() {
                   variant='none'
                 >
                   <Dropdown.Item href="/movies/popular">Popular</Dropdown.Item>
-                  <Dropdown.Item href="/movies/top-trending">
-                    Top Trending
+                  <Dropdown.Item href="/movies/top-rated">
+                    Top Rated
                   </Dropdown.Item>
                 </DropdownButton>
               </li>
@@ -36,8 +36,8 @@ export default function Navbar() {
                   variant='none'
                 >
                   <Dropdown.Item href="/tv-shows/popular">Popular</Dropdown.Item>
-                  <Dropdown.Item href="/tv-shows/top-trending">
-                    Top Trending
+                  <Dropdown.Item href="/tv-shows/top-rated">
+                    Top Rated
                   </Dropdown.Item>
                 </DropdownButton>
               </li>

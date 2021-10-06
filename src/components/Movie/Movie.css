@@ -1,0 +1,126 @@
+
+
+.movie-cover {
+  height: 65vh;
+  background-image: url('../../assets/images/dune.jpg');
+  box-shadow: inset 0 0 0 1000px rgb(0, 0, 0, .6);
+  background-position: 50% 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: white;
+  padding: 24px 6rem;
+}
+
+.movie-cover img {
+  height: 420px;
+  border-radius:6px;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, .3), -5px -5px 5px rgba(255, 255, 255, .3);
+}
+
+.movie-cover img:hover {
+  transform: scale(1.02);
+
+}
+
+.movie-cover-info {
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+.movie-cover-info h5 {
+  color: rgba(255,255,255,.8);
+  margin-bottom: 2rem;
+}
+
+.movie-title {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+  line-height: 0;
+}
+
+.movie-button-trailer {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items:baseline;
+}
+
+.movie-button-trailer p span {
+  font-size: 24px;
+}
+
+.movie-button-trailer button {
+  height: 2rem;
+  margin: 0 1.5rem;
+  background-color: rgb(255, 222, 89);
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.movie-overview {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.movie-overview h6{
+  font-size: larger;
+}
+
+.movie-overview p {
+  text-align: justify;
+}
+
+.movie-info {
+  margin-top:2rem; 
+}
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+}
+
+.social-links li a {
+  padding: 0 8px;
+}
+
+.movie-link {
+  height: 30px;
+  width: 30px;
+  color: rgb(54, 54, 54)
+  
+}
+
+.homepage-border {
+  padding-left: 8px;
+  border-left: 1px solid rgb(54, 54, 54);
+  margin-left: 8px;
+}
+
+.movie-social-media {
+  width: 30vh;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.budget {
+  margin-left: 2.4rem; 
+  display:flex;
+  flex-direction:column;
+}
+
+.budget div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

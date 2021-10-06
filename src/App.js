@@ -7,6 +7,8 @@ import Login from './components/login/login';
 import SignUp from './components/SignUp/SignUp';
 import Movie from './components/Movie/Movie';
 import MovieList from './components/MovieList/MovieList';
+import TVShowList from './components/TVShowList/TVShowList';
+import PeopleList from './components/PeopleList/PeopleList';
 import "./App.css";
 
 function App() {
@@ -17,9 +19,14 @@ function App() {
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/" exact component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path='/movies/popular' component={MovieList} />
+          <Route exact path='/movies/top-rated' component={MovieList} />
+          <Route exact path='/tv-shows/popular' component={TVShowList} />
+          <Route exact path='/tv-shows/top-rated' component={TVShowList} />
+          <Route exact path='/people/popular' component={PeopleList} />
           <Route path='/movies/:id' component={Movie} />
-          <Route path='/movies/popular' component={MovieList} />
+          <Route path='/tv-show/:id' component={Movie} />
         </Switch>
       </div>
       <Footer />

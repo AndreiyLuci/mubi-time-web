@@ -5,7 +5,7 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <div className="Footer">
-      <img src={logo} alt="logo" />
+      <img  src={logo} alt="logo" />
 
       <div>
         <p>Copyright 2021 MuBi Time, LLC</p>

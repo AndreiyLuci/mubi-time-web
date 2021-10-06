@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { popularMovies, topRatedMovies, popularTVShows } from "../../services/MovieService";
+import { popularTVShows, topRatedTVShows } from "../../services/MovieService";
 import Loader from "react-loader-spinner";
-import MovieCard from "../MovieCard/MovieCard";
-import "./MovieList.css";
+import TVShowCard from "../TVShowCard/TVShowCard";
+import "./TVShowList.css";
 
 export default function MovieList() {
   const pathname = window.location.pathname;
-  const [movies, setMovies] = useState();
+  const [TVShows, setTVShows] = useState();
   const [error, setError] = useState(false);
   const [currentUrl, setCurrentUrl] = useState(pathname);
 
@@ -15,32 +15,26 @@ export default function MovieList() {
   }, [pathname]);
 
   useEffect(() => {
-    if (currentUrl === '/movies/popular') {
-      popularMovies()
-      .then((movies) => {
-        setMovies(movies.results);
-      })
-      .catch(() => setError(true));
-    } else if (currentUrl === '/movies/top-rated') {
-      topRatedMovies()
-      .then((movies) => {
-        setMovies(movies.results);
-      })
-      .catch(() => setError(true));
-    } else if (currentUrl === 'tv-shows/popular') {
+    if (currentUrl === '/tv-shows/popular') {
       popularTVShows()
-      .then((movies) => {
-        setMovies(movies.results);
+      .then((TVShow) => {
+        setTVShows(TVShow.results);
       })
       .catch(() => setError(true))
-    }
+    } else if (currentUrl === '/tv-shows/top-rated') {
+      topRatedTVShows()
+      .then((TVShow) => {
+        setTVShows(TVShow.results);
+      })
+      .catch(() => setError(true));
+    } 
   }, [currentUrl]);
 
   if (error) {
     return <h2>😞 There was an error, retry in a few minutes 😞</h2>;
   }
 
-  if (!movies) {
+  if (!TVShows) {
     return (
       <div>
         <Loader
@@ -58,13 +52,13 @@ export default function MovieList() {
   return (
     <div id="MovieList" className="MovieList ">
       <h2 className="Movielist-heading">
-      {currentUrl === '/movies/popular' ? "Popular Movies" : "Top Rated Movies"}
+      {currentUrl === '/tv-shows/popular' ? "Popular TV Shows" : "Top Rated TV Shows"}
       </h2>
       <br />
       <div className="container">
         <div className="row row-cols-1 row-cols-md-6 g-0">
-          {movies.map((movie) => (
-            <MovieCard key={movie.id} {...movie} />
+          {TVShows.map((TVShow) => (
+            <TVShowCard key={TVShow.id} {...TVShow} />
           ))}
         </div>
       </div>
