@@ -2,7 +2,6 @@
 
 .movie-cover {
   height: 65vh;
-  background-image: url('../../assets/images/dune.jpg');
   box-shadow: inset 0 0 0 1000px rgb(0, 0, 0, .6);
   background-position: 50% 20%;
   display: flex;
@@ -23,6 +22,11 @@
 
 }
 
+.movie-cast-social {
+  max-width:80vw;
+  margin-left: 2rem;
+}
+
 .movie-cover-info {
   padding-left: 2rem;
   display: flex;
@@ -37,12 +41,31 @@
 }
 
 .movie-title {
+  width: 60vw;
   display: flex;
   flex-direction: column;
   align-items: baseline;
   justify-content: center;
   line-height: 0;
 }
+
+.movie-title-genres {
+  display: flex;
+  flex-direction: row;
+
+}
+.movie-genres {
+  margin: 0 5px;
+}
+
+.movie-title-genres div {
+  display: flex;
+  flex-direction: row;
+}
+.movie-title-genres div  p{
+  padding: 0 3px
+}
+
 
 .movie-button-trailer {
   display: flex;
@@ -79,13 +102,18 @@
 
 .movie-info {
   margin-top:2rem; 
+  width: 95vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
 }
 
 .social-links {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: left;
   list-style: none;
+  padding:0;
 }
 
 .social-links li a {
@@ -106,15 +134,18 @@
 }
 
 .movie-social-media {
-  width: 30vh;
   display:flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: 2.5rem 0 0 1.8rem;
+}
 
+.social-media {
+  padding: 0;
+  margin: 0;
 }
 
 .budget {
-  margin-left: 2.4rem; 
   display:flex;
   flex-direction:column;
 }
@@ -123,4 +154,36 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.cast-card-image {
+  height: 300px;
+  border-top-left-radius: 8px;
+  border-top-right-radius:8px;
+}
+
+.movie-cast-card {
+  margin: 0 7px;
+  border-radius: 8px;
+}
+
+.movie-cast-card:hover {
+  transform: scale(1.02);
+  border-radius:8px
+}
+
+.movie-cast-card a {
+  text-decoration: none;
+  color: rgb(54, 54, 54)
+}
+
+.movie-cast-card a:hover {
+  color: rgb(54, 54, 54, .6);
+}
+
+.movie-cast-slider {
+
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }

@@ -7,7 +7,6 @@
   text-align: center;
 }
 
-.movie-poster {
- height:300px;
+.MovieCard .movie-poster {
  object-fit: contain;
 }

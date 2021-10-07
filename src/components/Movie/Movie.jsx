@@ -14,7 +14,7 @@ export default function Movie() {
   const [error, setError] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const { id } = useParams();
-  const [cast, setCast] = useState({});
+  const [cast, setCast] = useState([]);
 
   useEffect(() => {
     getMovies(id)
@@ -32,7 +32,7 @@ export default function Movie() {
     getCast(id)
       .then((cast) => setCast(cast.cast))
       .catch(() => setError(true));
-  });
+  }, [id]);
 
   if (error) {
     return <h2>😞 There was an error, retry in a few minutes 😞</h2>;
@@ -55,7 +55,7 @@ export default function Movie() {
 
   return (
     <div className="Movie">
-      <div className="movie-cover">
+      <div className="movie-cover" style={{backgroundImage: `url(${process.env.REACT_APP_IMAGE_URL + movie.poster_path})`}}>
         <img
           src={process.env.REACT_APP_IMAGE_URL + movie.poster_path}
           alt="poster"
@@ -63,11 +63,17 @@ export default function Movie() {
         <div className="movie-cover-info">
           <div className="movie-title">
             <h1>
-              {movie.title} ({movie.release_date})
+              {movie.title} {new Date(movie.release_date).getFullYear()}
             </h1>
-            <p>
-              {movie.release_date} &#8226; {movie.runtime} min{" "}
-            </p>
+            <div className='movie-title-genres'>
+
+            <p>{movie.release_date}</p>
+            <div> &#8226; <span className='movie-genres'>{movie.genres.map((genre) => genre.name ).join(", ")}</span></div>
+            <p> &#8226; {movie.runtime} min</p> 
+              
+              
+            
+            </div>
             <div className="movie-button-trailer">
               <p>
                 {" "}
@@ -99,19 +105,22 @@ export default function Movie() {
         <div className="movie-cast-social">
           <div className="movie-cast">
             <h3>Cast</h3>
-            <div className="movie-cast-slider">
-              <div className="movie-cast-people">
-                {/* {cast.map((person) => (
-                  <div>
-                    <div className="card-image">
-                      <img src={process.env.REACT_APP_IMAGE_URL + person.profile_path} alt='profile' />
-                    </div>
-                    <div className="card-info">
-                      <h5>Nombre del actor</h5>
-                      <p>personaje que interpreta</p>
-                    </div>
+            <div className=" container">
+              <div className="movie-cast-slider">
+                {cast.map((person) => (
+
+                  <div className="movie-cast-card">
+                    <Link to={`/people/${person.id}`} >
+                      <div >
+                        <img className="cast-card-image"  src={process.env.REACT_APP_IMAGE_URL + person.profile_path} alt='profile' />
+                      </div>
+                      <div className="card-info">
+                        <h5>{person.name}</h5>
+                        <p>{person.character}</p>
+                      </div>
+                    </Link>
                   </div>
-                ))} */}
+                ))}
               </div>
             </div>
           </div>

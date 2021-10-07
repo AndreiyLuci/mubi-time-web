@@ -1,13 +1,15 @@
 .MovieCard {
-  
-  margin: 16px;
-}
-.MovieCard a {
   text-decoration:none;
   text-align: center;
+  margin: 16px;
+  color: rgb(54, 54, 54)
 }
 
-.movie-poster {
- height:300px;
+.MovieCard:hover {
+  transform: scale(1.02);
+  color: rgba(54, 54, 54, 0.6)
+}
+
+.MovieCard .movie-poster {
  object-fit: contain;
 }
