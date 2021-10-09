@@ -1,38 +1,38 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  getMovieCast,
-  getMovies,
-  getSocialIdsMovie,
+  getTVCast,
+  getTVShow,
+  getSocialIdsTV,
 } from "../../services/MovieService";
 import { SocialIcon } from "react-social-icons";
 import { LinkIcon } from "@heroicons/react/outline";
 import Loader from "react-loader-spinner";
 import { useParams } from "react-router-dom";
 import ModalVideo from "react-modal-video";
-import "./Movie.css";
-import { getMovieFav, markMovieAsFav } from "../../services/UserService";
+import "../Movie/Movie.css";
+import { getTVfav, markTVAsFav } from "../../services/UserService";
 import { useAuth } from "../../hooks/useAuth";
 
-export default function Movie() {
-  const [movie, setMovie] = useState({});
+export default function TVShow() {
+  const [TVShow, setTVShow] = useState({});
   const [socialId, setSocialId] = useState({});
   const [error, setError] = useState(false);
   // const [isOpen, setOpen] = useState(false);
-  const [fav, setFav] = useState(false);
+  const [fav, setFav] =useState(false);
   const { id } = useParams();
   const [cast, setCast] = useState([]);
   const { user } = useAuth();
 
   useEffect(() => {
-    getMovies(id)
-      .then((movie) => setMovie(movie))
+    getTVShow(id)
+      .then((tvShow) => setTVShow(tvShow))
       .catch(() => setError(true));
   }, [id]);
 
   useEffect(() => {
     if (user) {
-      getMovieFav(id)
+      getTVfav(id)
         .then(({ fav }) => setFav(fav))
         .catch(() => setError(true));
     } else {
@@ -41,19 +41,19 @@ export default function Movie() {
   }, [id, user]);
 
   useEffect(() => {
-    getSocialIdsMovie(id)
+    getSocialIdsTV(id)
       .then((socialId) => setSocialId(socialId))
       .catch(() => setError(true));
   }, [id]);
 
   useEffect(() => {
-    getMovieCast(id)
+    getTVCast(id)
       .then((cast) => setCast(cast.cast))
       .catch(() => setError(true));
   }, [id]);
 
   const onFavClick = () => {
-    markMovieAsFav(id)
+    markTVAsFav(id)
       .then(({ fav }) => setFav(fav))
       .catch(() => setError(true));
   };
@@ -62,7 +62,7 @@ export default function Movie() {
     return <h2>😞 There was an error, retry in a few minutes 😞</h2>;
   }
 
-  if (!movie.poster_path) {
+  if (!TVShow.poster_path) {
     return (
       <div>
         <Loader
@@ -83,36 +83,36 @@ export default function Movie() {
         className="movie-cover"
         style={{
           backgroundImage: `url(${
-            process.env.REACT_APP_IMAGE_URL + movie.poster_path
+            process.env.REACT_APP_IMAGE_URL + TVShow.poster_path
           })`,
         }}
       >
         <img
-          src={process.env.REACT_APP_IMAGE_URL + movie.poster_path}
+          src={process.env.REACT_APP_IMAGE_URL + TVShow.poster_path}
           alt="poster"
         />
         <div className="movie-cover-info">
           <div className="movie-title">
             <h1>
-              {movie.title} ({new Date(movie.release_date).getFullYear()})
+              {TVShow.name} ({new Date(TVShow.first_air_date).getFullYear()})
             </h1>
             <div className="movie-title-genres">
-              <p>{movie.release_date}</p>
+              <p>{TVShow.first_air_date}</p>
               <div>
                 {" "}
                 &#8226;{" "}
                 <span className="movie-genres">
-                  {movie.genres.map((genre) => genre.name).join(", ")}
+                  {TVShow.genres.map((genre) => genre.name).join(", ")}
                 </span>
               </div>
-              <p> &#8226; {movie.runtime} min</p>
+              <p> &#8226; {TVShow.episode_run_time[0]} min</p>
             </div>
             <div className="movie-button-trailer">
               <p>
                 {" "}
                 User Score{" "}
                 <span>
-                  <i>{movie.vote_average}</i>
+                  <i>{TVShow.vote_average}</i>
                 </span>
               </p>
               {user && (
@@ -132,12 +132,12 @@ export default function Movie() {
           </div>
 
           <h5>
-            <em>{movie.tagline}</em>
+            <em>{TVShow.tagline}</em>
           </h5>
 
           <div className="movie-overview">
             <h6>Overview</h6>
-            <p>{movie.overview}</p>
+            <p>{TVShow.overview}</p>
           </div>
         </div>
       </div>
@@ -220,7 +220,7 @@ export default function Movie() {
                 <div className="homepage-border">
                   <Link
                     to={{
-                      pathname: `${movie.homepage}`,
+                      pathname: `${TVShow.homepage}`,
                     }}
                     target="_blank"
                   >
@@ -235,21 +235,28 @@ export default function Movie() {
               <h6>
                 <strong>Original Language</strong>
               </h6>
-              <p>{movie.original_language.toUpperCase()}</p>
+              <p>{TVShow.original_language.toUpperCase()}</p>
             </div>
             <div>
               <h6>
-                <strong>Budget</strong>
+                <strong>Type</strong>
               </h6>
-              <p>${movie.budget}</p>
+              <p>{TVShow.type}</p>
             </div>
             <div>
               <h6>
-                <strong>Revenue</strong>
+                <strong>Network</strong>
               </h6>
-              <p>${movie.revenue}</p>
+              {TVShow.networks.map((network) => (
+                <img
+                  className="network-logo"
+                  src={process.env.REACT_APP_IMAGE_URL + network.logo_path}
+                  alt=""
+                />
+              ))}
             </div>
           </div>
+          <div className="keywords"></div>
         </div>
       </div>
     </div>

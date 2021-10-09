@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { popularMovies, topRatedMovies, popularTVShows } from "../../services/MovieService";
+import {
+  popularMovies,
+  topRatedMovies,
+  upcomingMovies,
+} from "../../services/MovieService";
 import Loader from "react-loader-spinner";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieList.css";
@@ -15,24 +19,24 @@ export default function MovieList() {
   }, [pathname]);
 
   useEffect(() => {
-    if (currentUrl === '/movies/popular') {
+    if (currentUrl === "/movies/popular") {
       popularMovies()
-      .then((movies) => {
-        setMovies(movies.results);
-      })
-      .catch(() => setError(true));
-    } else if (currentUrl === '/movies/top-rated') {
+        .then((movies) => {
+          setMovies(movies.results);
+        })
+        .catch(() => setError(true));
+    } else if (currentUrl === "/movies/top-rated") {
       topRatedMovies()
-      .then((movies) => {
-        setMovies(movies.results);
-      })
-      .catch(() => setError(true));
-    } else if (currentUrl === 'tv-shows/popular') {
-      popularTVShows()
-      .then((movies) => {
-        setMovies(movies.results);
-      })
-      .catch(() => setError(true))
+        .then((movies) => {
+          setMovies(movies.results);
+        })
+        .catch(() => setError(true));
+    } else if (currentUrl === "/movies/upcoming") {
+      upcomingMovies()
+        .then((movies) => {
+          setMovies(movies.results);
+        })
+        .catch(() => setError(true));
     }
   }, [currentUrl]);
 
@@ -58,7 +62,11 @@ export default function MovieList() {
   return (
     <div id="MovieList" className="MovieList ">
       <h2 className="Movielist-heading">
-      {currentUrl === '/movies/popular' ? "Popular Movies" : "Top Rated Movies"}
+        {currentUrl === "/movies/popular"
+          ? "Popular Movies"
+          : currentUrl === "/movies/top-rated"
+          ? "Top Rated Movies"
+          : "Upcoming Movies"}
       </h2>
       <br />
       <div className="container">

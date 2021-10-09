@@ -13,3 +13,9 @@
 .MovieCard .movie-poster {
  object-fit: contain;
 }
+
+.movie-card-body {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

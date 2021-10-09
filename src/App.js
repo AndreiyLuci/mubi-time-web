@@ -9,7 +9,9 @@ import Movie from './components/Movie/Movie';
 import MovieList from './components/MovieList/MovieList';
 import TVShowList from './components/TVShowList/TVShowList';
 import PeopleList from './components/PeopleList/PeopleList';
+import TVShow from "./components/TVShow/TVShow";
 import "./App.css";
+import PersonDetail from "./components/PersonDetail/PersonDetail";
 
 function App() {
   return (
@@ -22,11 +24,14 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path='/movies/popular' component={MovieList} />
           <Route exact path='/movies/top-rated' component={MovieList} />
+          <Route exact path='/movies/upcoming' component={MovieList} />
           <Route exact path='/tv-shows/popular' component={TVShowList} />
           <Route exact path='/tv-shows/top-rated' component={TVShowList} />
+          <Route exact path='/tv-shows/on-the-air' component={TVShowList} />
           <Route exact path='/people/popular' component={PeopleList} />
           <Route path='/movies/:id' component={Movie} />
-          <Route path='/tv-show/:id' component={Movie} />
+          <Route path='/tv-show/:id' component={TVShow} />
+          <Route path='/people/:id' component={PersonDetail} />
         </Switch>
       </div>
       <Footer />

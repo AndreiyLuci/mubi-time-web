@@ -16,9 +16,9 @@ export default function MovieCard({
           src={process.env.REACT_APP_IMAGE_URL + poster_path}
           alt=""
         />
-        <div className="card-body">
+        <div className="movie-card-body card-body">
           <h6 className="card-title">{title}</h6>
-          <p className="card-text">{release_date}</p>
+          <p className="card-text">{new Date(release_date).getFullYear()}</p>
           <p className="card-text">Rating {vote_average}/10</p>
         </div>
       </div>

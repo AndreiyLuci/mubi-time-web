@@ -1,0 +1,34 @@
+.people-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-overflow: ellipsis;
+  text-decoration:none;
+
+}
+
+.people-info p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 200px;
+    display: block;
+    overflow: hidden
+}
+
+.PeopleCard {
+  margin: 16px;
+}
+
+.PeopleCard:hover {
+  transform: scale(1.02);
+}
+.PeopleCard a {
+  text-decoration: none;
+  color: rgb(54, 54, 54)
+}
+
+.PeopleCard a:hover {
+  text-decoration: none;
+  color: rgb(54, 54, 54, .6);
+}

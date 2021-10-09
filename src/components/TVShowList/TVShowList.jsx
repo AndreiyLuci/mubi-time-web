@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { popularTVShows, topRatedTVShows } from "../../services/MovieService";
+import { popularTVShows, topRatedTVShows, onTheAirShows } from "../../services/MovieService";
 import Loader from "react-loader-spinner";
 import TVShowCard from "../TVShowCard/TVShowCard";
 import "./TVShowList.css";
@@ -27,7 +27,13 @@ export default function MovieList() {
         setTVShows(TVShow.results);
       })
       .catch(() => setError(true));
-    } 
+    } else if (currentUrl === '/tv-shows/on-the-air') {
+      onTheAirShows()
+      .then((TVShow) => {
+        setTVShows(TVShow.results);
+      })
+      .catch(() => setError(true));
+    }
   }, [currentUrl]);
 
   if (error) {
@@ -52,7 +58,11 @@ export default function MovieList() {
   return (
     <div id="MovieList" className="MovieList ">
       <h2 className="Movielist-heading">
-      {currentUrl === '/tv-shows/popular' ? "Popular TV Shows" : "Top Rated TV Shows"}
+      {currentUrl === "/tv-shows/popular"
+          ? "Popular TV Shows"
+          : currentUrl === "/tv-shows/top-rated"
+          ? "Top Rated TV Shows"
+          : "Currently airing TV Shows"}
       </h2>
       <br />
       <div className="container">

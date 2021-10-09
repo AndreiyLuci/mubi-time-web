@@ -1,12 +1,24 @@
-.MovieCard {
+.TVShowCard {
   
   margin: 16px;
 }
-.MovieCard a {
-  text-decoration:none;
-  text-align: center;
+
+.TVShowCard:hover {
+  transform: scale(1.02);
+  color: rgba(54, 54, 54, 0.6)
 }
 
-.MovieCard .movie-poster {
+.TVShowCard a {
+  text-decoration:none;
+  text-align: center;
+  color: rgb(54, 54, 54)
+}
+
+.TVShowCard a:hover {
+  color: rgba(54, 54, 54, 0.6)
+}
+
+
+.TVShowCard .movie-poster {
  object-fit: contain;
 }

@@ -27,6 +27,7 @@ export default function Navbar() {
                   <Dropdown.Item href="/movies/top-rated">
                     Top Rated
                   </Dropdown.Item>
+                  <Dropdown.Item href="/movies/upcoming">Upcoming</Dropdown.Item>
                 </DropdownButton>
               </li>
               <li className="nav-item dropdown">
@@ -39,6 +40,7 @@ export default function Navbar() {
                   <Dropdown.Item href="/tv-shows/top-rated">
                     Top Rated
                   </Dropdown.Item>
+                  <Dropdown.Item href="/tv-shows/on-the-air">On The Air</Dropdown.Item>
                 </DropdownButton>
               </li>
               <li className="nav-item dropdown">

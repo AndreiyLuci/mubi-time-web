@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { popularPeople } from "../../services/MovieService";
 import Loader from "react-loader-spinner";
+import './PeopleList.css'
 
-export default function MovieList() {
+export default function PeopleList() {
   const [people, setPeople] = useState();
   const [error, setError] = useState(false);
 
@@ -43,18 +44,18 @@ export default function MovieList() {
       <div className="container">
         <div className="row row-cols-1 row-cols-md-6 g-0">
           {people.map((person) => (
-            <div className="MovieCard card col-sm-2">
-              <Link to={`/people/${people.id}`}>
+            <div className="PeopleCard card col-sm-2">
+              <Link to={`/people/${person.id}`}>
                 <img
                   className="movie-poster card-img-top"
                   src={process.env.REACT_APP_IMAGE_URL + person.profile_path}
                   alt=""
                 />
-                <div className="movie-info card-body">
+                <div className="people-info card-body">
                   <h6 className="card-title">{person.name}</h6>
-                  {person.known_for.map((show) => (
-                    <p>{show.name || show.title}</p>
-                  ))}
+                  <p>{person.known_for.map((show) => (
+                    show.name || show.title
+                  )).join(", ")}</p>
                 </div>
               </Link>
             </div>

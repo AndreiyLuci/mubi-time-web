@@ -1,0 +1,57 @@
+.PersonDetail {
+  margin: 2rem 5rem;
+  display: flex;
+
+}
+
+.personal-info-image {
+  max-width: 20%;
+  margin-right: 3rem;
+
+}
+
+.personal-info-image  img{
+  max-width: 300px;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+  
+}
+
+.personal-info-image  img:hover{
+  transform: scale(1.02) 
+  
+}
+
+.person-biography-knownfor {
+  max-width:78%;
+  display: flex;
+  flex-direction: column;
+}
+
+.person-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.person-info div p {
+  text-align: left;
+}
+
+.person-biography {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.person-biography h4 {
+  padding-left: 1rem;
+}
+
+.person-biography p {
+  text-align: justify;
+  padding-left: 1rem
+}
