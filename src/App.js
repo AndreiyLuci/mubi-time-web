@@ -10,8 +10,10 @@ import MovieList from './components/MovieList/MovieList';
 import TVShowList from './components/TVShowList/TVShowList';
 import PeopleList from './components/PeopleList/PeopleList';
 import TVShow from "./components/TVShow/TVShow";
-import "./App.css";
 import PersonDetail from "./components/PersonDetail/PersonDetail";
+import UserProfile from "./components/UserProfile/UserProfile";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import "./App.css";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route exact path="/" component={Home} />
+          <PrivateRoute exact path='/users/:username' component={UserProfile} />
           <Route exact path='/movies/popular' component={MovieList} />
           <Route exact path='/movies/top-rated' component={MovieList} />
           <Route exact path='/movies/upcoming' component={MovieList} />

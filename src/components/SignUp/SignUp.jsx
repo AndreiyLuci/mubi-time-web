@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { createUser } from "../../services/UserService";
 import logo from "../../assets/images/_Cine Evento Logotipo Line.png";
 import "./SignUp.css";
-import GoogleLogin from 'react-google-login';
+// import GoogleLogin from "react-google-login";
 
 export default function SignUp() {
   const [user, setUser] = useState({
@@ -23,6 +23,8 @@ export default function SignUp() {
     setUser((prev) => {
       const value =
         e.target.type === "file" ? e.target.files[0] : e.target.value;
+        setFileUrl(URL.createObjectURL(e.target.files[0]));
+        handleHidden()
       return { ...prev, [e.target.name]: value };
     });
   };
@@ -31,6 +33,7 @@ export default function SignUp() {
     setHidden(!hidden);
   };
 
+  
   const onChangeImage = (event) => {
     const imageFile = event.target.files[0];
     const imageUrl = URL.createObjectURL(imageFile);
@@ -54,14 +57,12 @@ export default function SignUp() {
       .catch((error) => setError(error.response.data.message));
   };
 
-  const responseSuccessGoogle = (response) => {
-    console.log(response)
-  };
+  // const responseSuccessGoogle = (response) => {
+  //   console.log(response);
+  // };
 
-  const responseErrorGoogle = (response) => {
+  // const responseErrorGoogle = (response) => {};
 
-  }
- 
   return (
     <div className="SignUp">
       <div className="SignUp-container">
@@ -88,6 +89,7 @@ export default function SignUp() {
                 className="Input"
                 name="email"
                 id="email"
+                type='email'
                 value={user.email}
                 onChange={onChange}
               />
@@ -129,20 +131,13 @@ export default function SignUp() {
                 name="avatar"
                 id="avatar"
                 type="file"
-                onChange={onChangeImage}
+                onChange={onChange}
               />
             </div>
             <div>
               <button className="signup-btn" type="submit">
                 <span>Sign Up</span>
               </button>
-              <GoogleLogin
-                clientId={process.env.REACT_APP_GOOGLE_ID}
-                buttonText="Log in with Google"
-                onSuccess={responseSuccessGoogle}
-                onFailure={responseErrorGoogle}
-                cookiePolicy={"single_host_origin"}
-              />
             </div>
           </form>
           <div className="login-link">
@@ -153,3 +148,13 @@ export default function SignUp() {
     </div>
   );
 }
+
+// Google Login
+
+{/* <GoogleLogin
+  clientId={process.env.REACT_APP_GOOGLE_ID}
+  buttonText="Log in with Google"
+  onSuccess={responseSuccessGoogle}
+  onFailure={responseErrorGoogle}
+  cookiePolicy={"single_host_origin"}
+/>; */}

@@ -15,6 +15,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-right: 2rem;
 }
 
 .Navbar {
@@ -40,7 +41,9 @@
   list-style: none;
 }
 
-/* .dropdown-btn {
-  background-color: rgb(255, 222, 89);
-  color:salmon;
-} */
+.navbar-avatar {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}

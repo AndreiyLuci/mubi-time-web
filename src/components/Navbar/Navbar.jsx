@@ -56,19 +56,22 @@ export default function Navbar() {
           </div>
           {user ? (
             <div className="navbar-info">
-              <NavLink to="/profile" exact className="btn ">
-                <img
+              <DropdownButton
+              id="dropdown-basic-button"
+                  title={<img
                   src={user.avatar}
-                  style={{ height: "30px" }}
-                  className=""
+                  className="navbar-avatar"
                   alt=""
-                />
-                <span className="">{user.username}</span>
-              </NavLink>
-              <button className="btn" onClick={logout} title="Log out">
+                />}
+                  variant='none'
+                >
+                  <Dropdown.Item href={`/users/${user.username}`}>{user.username}'s Profile</Dropdown.Item>
+                  <Dropdown.Item><button className="btn" onClick={logout} title="Log out">
                 Log Out
-              </button>
+              </button></Dropdown.Item>
+              </DropdownButton>
             </div>
+            
           ) : (
             <div className="navbar-info">
               <NavLink to="/signup" className="" activeClassName="" exact>
