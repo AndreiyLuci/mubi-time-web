@@ -77,5 +77,5 @@ export function getPersonCredits(id) {
 
 // Search
 export function searchInfo(query) {
-  return http.get('/search/multi', { params: { query: query } })
+  return http.get('/search/movie', { params: { query: query } })
 }

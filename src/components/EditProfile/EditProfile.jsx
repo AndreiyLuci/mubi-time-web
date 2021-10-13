@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
-import { createUser } from "../../services/UserService";
+import { editUser } from "../../services/UserService";
 import logo from "../../assets/images/_Cine Evento Logotipo Line.png";
-import "./SignUp.css";
+import { useAuth } from "../../hooks/useAuth";
+import "../SignUp/SignUp.css";
 // import GoogleLogin from "react-google-login";
 
-export default function SignUp() {
-  const [user, setUser] = useState({
+export default function EditProfile() {
+
+  const { user } = useAuth();
+
+  const [editedUser, setEditedUser] = useState({
     email: "",
     password: "",
     username: "",
@@ -20,7 +23,7 @@ export default function SignUp() {
   const { replace } = useHistory();
 
   const onChange = (e) => {
-    setUser((prev) => {
+    setEditedUser((prev) => {
       const value =
         e.target.type === "file" ? e.target.files[0] : e.target.value;
 
@@ -37,18 +40,18 @@ export default function SignUp() {
     setHidden(!hidden);
   };
 
-  const doRegister = (e) => {
+  const doEditProfile = (e) => {
     e.preventDefault();
 
     const formData = new FormData();
 
-    Object.keys(user).forEach((key) => {
+    Object.keys(editedUser).forEach((key) => {
       formData.append(key, user[key]);
     });
 
-    createUser(formData)
+    editUser(formData)
       .then(() => {
-        replace("/login");
+        replace(`/users/${user.username}`);
       })
       .catch((error) => setError(error.response.data.message));
   };
@@ -65,18 +68,12 @@ export default function SignUp() {
         <div className="SignUp-header">
           <img className="logo" src={logo} alt="logo" />
           <p>
-            {" "}
-            Sign up for{" "}
-            <em>
-              <strong>MuBi Time</strong>
-            </em>{" "}
-            to rate <br />
-            and review your favorite shows
+            Edit your profile
           </p>
         </div>
         <div className="SignUp-form">
           {error && <p>There was an error: {error}</p>}
-          <form onSubmit={doRegister}>
+          <form onSubmit={doEditProfile}>
             <div className="form-input">
               <label className="Label" htmlFor="email">
                 Email
@@ -86,7 +83,7 @@ export default function SignUp() {
                 name="email"
                 id="email"
                 type='email'
-                value={user.email}
+                value={editedUser.email}
                 onChange={onChange}
               />
             </div>
@@ -99,7 +96,7 @@ export default function SignUp() {
                 name="password"
                 id="password"
                 type="password"
-                value={user.password}
+                value={editedUser.password}
                 onChange={onChange}
               />
             </div>
@@ -111,7 +108,7 @@ export default function SignUp() {
                 className="Input"
                 name="username"
                 id="username"
-                value={user.username}
+                value={editedUser.username}
                 onChange={onChange}
               />
             </div>
@@ -132,25 +129,12 @@ export default function SignUp() {
             </div>
             <div>
               <button className="signup-btn" type="submit">
-                <span>Sign Up</span>
+                <span>Update</span>
               </button>
             </div>
           </form>
-          <div className="login-link">
-            <p>Already have an account?</p> <Link to="/login"> Log In </Link>
-          </div>
         </div>
       </div>
     </div>
   );
 }
-
-// Google Login
-
-{/* <GoogleLogin
-  clientId={process.env.REACT_APP_GOOGLE_ID}
-  buttonText="Log in with Google"
-  onSuccess={responseSuccessGoogle}
-  onFailure={responseErrorGoogle}
-  cookiePolicy={"single_host_origin"}
-/>; */}

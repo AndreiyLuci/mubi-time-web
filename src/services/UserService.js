@@ -10,6 +10,10 @@ export const createUser = (user) => {
   return http.post('/sign-up', user)
 }
 
+export const editUser = (id, user) => {
+  return http.post(`/users/${id}/edit-profile`, user)
+}
+
 
 // favs
 export const markMovieAsFav = (movieId) => {

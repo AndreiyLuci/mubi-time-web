@@ -13,6 +13,7 @@ import TVShow from "./components/TVShow/TVShow";
 import PersonDetail from "./components/PersonDetail/PersonDetail";
 import UserProfile from "./components/UserProfile/UserProfile";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import EditProfile from "./components/EditProfile/EditProfile";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route exact path="/" component={Home} />
+          <PrivateRoute exact path='/users/:username/edit-profile' component={EditProfile} />
           <PrivateRoute exact path='/users/:username' component={UserProfile} />
           <Route exact path='/movies/popular' component={MovieList} />
           <Route exact path='/movies/top-rated' component={MovieList} />
@@ -33,7 +35,7 @@ function App() {
           <Route exact path='/tv-shows/on-the-air' component={TVShowList} />
           <Route exact path='/people/popular' component={PeopleList} />
           <Route path='/movies/:id' component={Movie} />
-          <Route path='/tv-show/:id' component={TVShow} />
+          <Route path='/tv-shows/:id' component={TVShow} />
           <Route path='/people/:id' component={PersonDetail} />
         </Switch>
       </div>
