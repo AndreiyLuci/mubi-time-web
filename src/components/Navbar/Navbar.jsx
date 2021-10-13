@@ -23,7 +23,11 @@ export default function Navbar() {
                   title="Movies"
                   variant='none'
                 >
-                  <Dropdown.Item href="/movies/popular">Popular</Dropdown.Item>
+                  <Dropdown.Item href="/movies/popular">
+                    <Link to="/movies/popular">
+                      Popular
+                    </Link>
+                  </Dropdown.Item>
                   <Dropdown.Item href="/movies/top-rated">
                     Top Rated
                   </Dropdown.Item>

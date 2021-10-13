@@ -24,7 +24,7 @@ export const create = (isExternalAPI = false, useAccessToken = true) => {
   const API_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NTQ4MDMyZGQyMGI2MDZhNTg0MTExODkyOTkzMWM4YiIsInN1YiI6IjYxNTU3ZTU0ZDFjYTJhMDA2NzNmNGI0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fWbU-UuA424hSWRzXXHgSJhfLigl54JoKO1tPBNuU5o"
 
   const http = axios.create({
-    baseURL: isExternalAPI ? "https://api.themoviedb.org/3" : 'http://localhost:3001'
+    baseURL: isExternalAPI ? "https://api.themoviedb.org/3" : 'https://mubitime-api.herokuapp.com/'
     
   });
 
