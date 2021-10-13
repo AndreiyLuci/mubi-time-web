@@ -17,7 +17,7 @@ export default function SignUp() {
   const [hidden, setHidden] = useState(false);
 
   const [error, setError] = useState();
-  const { replace } = useHistory();
+  const { push } = useHistory();
 
   const onChange = (e) => {
     setUser((prev) => {
@@ -48,7 +48,7 @@ export default function SignUp() {
 
     createUser(formData)
       .then(() => {
-        replace("/login");
+        push("/login");
       })
       .catch((error) => setError(error.response.data.message));
   };
