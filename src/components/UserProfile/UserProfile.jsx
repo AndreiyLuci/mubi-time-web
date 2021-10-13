@@ -29,6 +29,7 @@ export default function UserProfile() {
          <img src={user.avatar} alt=''/>
          <h1>{user.username}</h1>
          <p><i>Member since {new Date(user.createdAt).getFullYear()}</i></p>
+         <p>{user.favMovies[0]}</p>
        </div>
        <div className='profile-favs'>
   
