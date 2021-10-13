@@ -13,14 +13,14 @@ export default function Home() {
   const [results, setResults] = useState([]);
   const [movies, setMovies] = useState([]);
   const [TVShows, setTVShows] = useState([]);
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
 
   const onSearch = () => {
     searchInfo(search)
       .then(({ results }) => {
         setResults(results);
       })
-      .catch(() => setError(true));
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function Home() {
       .then((movies) => {
         setMovies(movies.results);
       })
-      .catch(() => setError(true));
+      .catch((error) => console.error(error));
   }, []);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Home() {
       .then((TVShows) => {
         setTVShows(TVShows.results);
       })
-      .catch(() => setError(true));
+      .catch((error) => console.error(error));
   }, []);
 
   if (!movies || !TVShows || !results) {

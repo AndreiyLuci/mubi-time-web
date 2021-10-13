@@ -9,7 +9,6 @@ import { SocialIcon } from "react-social-icons";
 import { LinkIcon } from "@heroicons/react/outline";
 import Loader from "react-loader-spinner";
 import { useParams } from "react-router-dom";
-import ModalVideo from "react-modal-video";
 import "../Movie/Movie.css";
 import { getTVfav, markTVAsFav } from "../../services/UserService";
 import { useAuth } from "../../hooks/useAuth";

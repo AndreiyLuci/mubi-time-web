@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { createUser } from "../../services/UserService";
@@ -147,6 +147,7 @@ export default function SignUp() {
 
 // Google Login
 
+// eslint-disable-next-line no-lone-blocks
 {/* <GoogleLogin
   clientId={process.env.REACT_APP_GOOGLE_ID}
   buttonText="Log in with Google"

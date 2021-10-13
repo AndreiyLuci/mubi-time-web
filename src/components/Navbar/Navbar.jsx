@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/_Cine Evento Logotipo Line.png";
 import { useAuth } from "../../hooks/useAuth";
@@ -100,47 +100,3 @@ export default function Navbar() {
   Dropdown button
 </button>;
 
-//navbar vieja
-
-{
-  /* <div>
-      <nav className="Navbar container-fluid position-fixed">
-        <div className="navbar-flex">
-          <div className="navbar-links">
-            <Link to="/">
-              <img src={logo} alt="logo" className="logo" />
-            </Link>
-            <div>
-              <Link to="/movies/popular">Popular</Link>
-              <Link to="/people/popular"></Link>
-            </div>
-          </div>
-          {user ? (
-            <div className="navbar-info">
-              <NavLink to="/profile" exact className="btn ">
-                <img
-                  src={user.avatar}
-                  style={{ height: "30px" }}
-                  className=""
-                  alt=""
-                />
-                <span className="">{user.username}</span>
-              </NavLink>
-              <button className="btn" onClick={logout} title="Log out">
-                Log Out
-              </button>
-            </div>
-          ) : (
-            <div className="navbar-info">
-              <NavLink to="/signup" className="" activeClassName="" exact>
-                <button className="btn">Sign Up</button>
-              </NavLink>
-              <NavLink to="/login" className="" activeClassName="" exact>
-                <button className="btn">Login</button>
-              </NavLink>
-            </div>
-          )}
-        </div>
-      </nav>
-    </div> */
-}
