@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   getMovieCast,
   getMovies,
+  getMovieTrailer,
   getSocialIdsMovie,
 } from "../../services/MovieService";
 import { SocialIcon } from "react-social-icons";
@@ -17,10 +18,10 @@ export default function Movie() {
   const [movie, setMovie] = useState({});
   const [socialId, setSocialId] = useState({});
   const [error, setError] = useState(false);
-  // const [isOpen, setOpen] = useState(false);
+  const [video, setVideo] = useState("")
   const [fav, setFav] = useState(false);
-  const { id } = useParams();
   const [cast, setCast] = useState([]);
+  const { id } = useParams();
   const { user } = useAuth();
 
   useEffect(() => {
@@ -51,11 +52,22 @@ export default function Movie() {
       .catch(() => setError(true));
   }, [id]);
 
+  useEffect(() => {
+    getMovieTrailer(id)
+      .then((video) => setVideo(video.results[0]))
+      .catch(() => setError(true))
+  }, [id])
+
   const onFavClick = () => {
     markMovieAsFav(id)
       .then(({ fav }) => setFav(fav))
       .catch(() => setError(true));
   };
+
+  const watchTrailer = () => {
+    const url = `https://www.youtube.com/watch?v=${video.key}`;
+    window.open(url, '_blank');
+  }
 
   if (error) {
     return <h2>😞 There was an error, retry in a few minutes 😞</h2>;
@@ -122,11 +134,7 @@ export default function Movie() {
                   </span>
                 </button>
               )}
-              <button type="">Watch trailer</button>
-              {/* <div>
-            <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={"gU4vcJIbeOU"} onClose={() => setOpen(false)} />
-            <button className="btn-primary" onClick={()=> setOpen(true)}>VIEW TRAILER</button>
-            </div> */}
+              <button type="button" onClick={watchTrailer}>Watch trailer</button>              
             </div>
           </div>
 

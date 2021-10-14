@@ -121,12 +121,7 @@ export default function TVShow() {
                     ❤️
                   </span>
                 </button>
-              )}
-              <button type="">Watch trailer</button>
-              {/* <div>
-            <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={"gU4vcJIbeOU"} onClose={() => setOpen(false)} />
-            <button className="btn-primary" onClick={()=> setOpen(true)}>VIEW TRAILER</button>
-            </div> */}
+              )}              
             </div>
           </div>
 

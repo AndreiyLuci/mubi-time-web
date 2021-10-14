@@ -24,9 +24,7 @@ export default function Navbar() {
                   variant='none'
                 >
                   <Dropdown.Item href="/movies/popular">
-                    <Link to="/movies/popular">
-                      Popular
-                    </Link>
+                  Popular
                   </Dropdown.Item>
                   <Dropdown.Item href="/movies/top-rated">
                     Top Rated
@@ -70,7 +68,6 @@ export default function Navbar() {
                   variant='none'
                 >
                   <Dropdown.Item href={`/users/${user.username}`}>{user.username}'s Profile</Dropdown.Item>
-                  <Dropdown.Item href={`/users/${user.username}/edit-profile`}>Edit profile</Dropdown.Item>
                   <Dropdown.Item><button className="btn" onClick={logout} title="Log out">
                 Log Out
               </button></Dropdown.Item>

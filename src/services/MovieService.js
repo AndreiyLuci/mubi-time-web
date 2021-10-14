@@ -31,6 +31,10 @@ export function getMovieCast(id) {
   return http.get(`/movie/${id}/credits`)
 }
 
+export function getMovieTrailer(id) {
+  return http.get(`/movie/${id}/videos`)
+}
+
 
 // TV Shows
 export function getTVShow(id) {

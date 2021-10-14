@@ -53,12 +53,6 @@ export default function SignUp() {
       .catch((error) => setError(error.response.data.message));
   };
 
-  // const responseSuccessGoogle = (response) => {
-  //   console.log(response);
-  // };
-
-  // const responseErrorGoogle = (response) => {};
-
   return (
     <div className="SignUp">
       <div className="SignUp-container">
