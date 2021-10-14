@@ -95,10 +95,23 @@
 }
 
 .search-card {
+  border: 1px solid rgb(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 8px;
+  
+}
+
+.search-card:hover {
+
+  box-shadow: 0 0 12px rgb(160, 160, 160);
+}
+
+.search-card a{
   width:100%;
   display: flex;
   flex-direction: row;
   justify-content: left;
+  border: 1 px solid black;
 }
 
 .search-card a {
@@ -110,16 +123,25 @@
   color: rgba(54, 54, 54, .8)
 }
 
-.search-card-image {
-  height: 300px;
+.search-card-image img {
+  height: 150px;
   border-top-left-radius: 8px;
   border-bottom-left-radius:8px;
 }
 
 .search-card-info {
   text-decoration: none;
+  padding: 8px 16px 0;
+}
+.search-card-info h6 {
+  text-align: left;
 }
 
 .search-card-info p {
-  text-overflow: ellipsis;
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+  text-align: justify;
 }

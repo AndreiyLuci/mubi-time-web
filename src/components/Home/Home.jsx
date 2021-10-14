@@ -82,10 +82,10 @@ export default function Home() {
               <div className="search-list">
               {results.map((result) => (
                   <div className="search-card">
-                    <Link to={`/movies/${result.id}`}>
-                      <div>
+                    <Link to={`/movies/${result.id}`} className=''>
+                      <div className="search-card-image">
                         <img
-                          className="search-card-image"
+                        
                           src={
                             process.env.REACT_APP_IMAGE_URL + result.poster_path
                           }
